@@ -10,13 +10,9 @@
                 margin: 0;
                 padding: 20px;
             }
-        h1 {
-            text-align: center;
-            width: 100%; /* Garante que ele ocupa a largura toda do bloco dele */
-            margin: 0;
-            }
+
             
-            .contentor-layout {
+        .contentor-layout {
                 display: flex;          /* Ativa o modo flexível */
                 align-items: center;    /* Alinha tudo verticalmente ao centro */
                 justify-content: space-between; /* Empurra os elementos para as extremidades */
@@ -24,31 +20,35 @@
                 padding: 20px;
                 border-radius: 10px;
             }
-            .item-esquerda {
+        .item-esquerda {
             flex: 1; /* Ocupa espaço à esquerda */
             }
     
-            .item-centro {
+        .item-centro {
                 flex: 1;
                 text-align: center; /* Garante que o texto fique mesmo no meio */
             }
     
-            .item-direita {
+        .item-direita {
                 flex: 1;
                 text-align: right; /* Empurra o conteúdo para a direita */
             }
-    
-            button {
-                padding: 10px 20px;
-                cursor: pointer;
+
+        h1 {
+            text-align: center;
+            width: 100%; /* Garante que ele ocupa a largura toda do bloco dele */
+            margin: 0;
             }
    </style>
 </head>    
 <body>
     <h1>Bem Vindo !!! </h1>
-    <div class="contentor-layout">      
+    <div class="contentor-layout">
+        <div class="item-centro">
+                <h1>Bem Vindo !!! </h1>
+        </div>
         <div class="item-esquerda">
             <span>Benjamim Pereira FCUL</span>
-        </div>       
+        </div> </div>      
 </body>
 </html>
