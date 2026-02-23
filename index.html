@@ -52,6 +52,17 @@
         
         .botao-bonito:hover {
              background-color: #218838; /* Muda de cor ao passar o rato */
+        }
+        .botaodireita {
+              background-color: #f2c2c2;
+              color: white;
+              padding: 15px 25px;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
+              font-size: 16px;
+              text-align: right;  
+            
              }
         
         img {
@@ -100,7 +111,12 @@
     <div class="contentor-layout">
         <div class="item-esquerda">
             <span>Benjamim Pereira FCUL</span>
-        </div> </div> 
+        </div> 
+        
+    </div> 
+    <button class="botaodireita" id="cancelar" style="display":none; onclick="fecharFolha()">SAIR </button>        
+        
+     
     
     <br><br>                         
     <a href="" target="_blank">
@@ -109,7 +125,7 @@
     </button>        
     </a>    
     <br>
-    <button class="botao-bonito" onclick="abrirFolha()">Abrir</button>
+    <button id="menu" class="botao-bonito" onclick="abrirFolha()">Abrir</button>
     <div id="folha" class="folha">
     <h2>Conteúdo</h2>
     <p>Isto deslizou da esquerda.</p>
@@ -122,6 +138,12 @@
     function abrirFolha() {
     document.getElementById("folha").classList.toggle("ativa");
     }
+    document.getElementById("menu").addEventListener("click", function() {
+    document.getElementById("cancelar").style.display = "inline-block";
+    });  
+    function fecharFolha() {
+      document.getElementById("folha").classList.remove("ativa");
+       }    
     </script>
 </body>
 </html>
