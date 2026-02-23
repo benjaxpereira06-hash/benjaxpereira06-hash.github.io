@@ -60,7 +60,21 @@
              margin-top: 20px;
              }    
             
-            
+        .folha {
+          position: fixed;
+          top: 0;
+          left: -100%;           /* começa fora do ecrã */
+          width: 300px;
+          height: 100vh;
+          background: white;
+          box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+          transition: left 0.4s ease;  /* animação suave */
+          padding: 20px;
+        }
+        
+        .folha.ativa {
+          left: 0;               /* desliza para dentro */
+         }     
     
     
     
@@ -91,11 +105,22 @@
     <a href="" target="_blank">
     <button class="botao-bonito" >
         BONUS
-    </button>
+    </button>        
     </a>    
-
+    <br>
+    <button class="botao-bonito" onclick="abrirFolha()">Abrir</button>
+    <div id="folha" class="folha">
+    <h2>Conteúdo</h2>
+    <p>Isto deslizou da esquerda.</p>
+    </div>    
     <br><br>
 
     <img src="61ed7bdc124f41a344e7f2249f79d543.jpg" alt="Minha Imagem de Teste">
+
+    <script>
+    function abrirFolha() {
+    document.getElementById("folha").classList.toggle("ativa");
+    }
+    </script>
 </body>
 </html>
