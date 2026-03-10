@@ -27,8 +27,6 @@ data.main.feels_like + " °C";
 
 const icon = data.weather[0].icon;
 
-document.getElementById("icon").src =
-`https://openweathermap.org/img/wn/${icon}@2x.png`;
 
 }
 function abrirFolha() {
