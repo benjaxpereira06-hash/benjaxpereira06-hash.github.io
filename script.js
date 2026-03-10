@@ -43,7 +43,7 @@ function mudarFundo(estado){
 }
 const params = new URLSearchParams(window.location.search);
 const city = params.get("city");
-
+getWeather(city);
 
 async function getWeather(city) {
 
