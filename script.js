@@ -1,3 +1,12 @@
+function procurarCidade(){
+
+const cidade = document.getElementById("cityInput").value;
+
+window.location.href = "weather.html?city=" + cidade;
+
+}
+
+
 function mudarFundo(estado){
 
     if(estado === "Clear"){
@@ -32,7 +41,8 @@ function mudarFundo(estado){
     document.body.style.background = "linear-gradient(to bottom, #74ebd5, #acb6e5)";
     }
 }
-
+const params = new URLSearchParams(window.location.search);
+const city = params.get("city");
 
 
 async function getWeather(city) {
@@ -61,7 +71,7 @@ data.wind.speed + " m/s";
 
 document.getElementById("feels").innerText =
 data.main.feels_like + " °C";
-const estado = data.weather[0].main;
+const estado = data.weather[0].main;    
 
 mudarFundo(estado);
 
