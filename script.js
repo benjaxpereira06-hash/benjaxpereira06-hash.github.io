@@ -9,36 +9,22 @@ window.location.href = "weather.html?city=" + cidade;
 
 function mudarFundo(estado){
 
-    if(estado === "Clear"){
-        document.body.style.backgroundColor = "linear-gradient(to bottom, #4facfe, #00f2fe)"; // céu limpo (azul)
-
-    } else if(estado === "Clouds"){
-        document.body.style.backgroundColor = "linear-gradient(to bottom, #bdc3c7, #2c3e50)"; // nublado
-
-    } else if(estado === "Rain"){
-        document.body.style.backgroundColor = "linear-gradient(to bottom, #4b79a1, #283e51)"; // chuva
-
-    } else if(estado === "Snow"){
-        document.body.style.backgroundColor = "#E6F2FF"; // neve
-
-    } else if(estado === "Drizzle"){
-    document.body.style.background = "linear-gradient(to bottom, #89f7fe, #66a6ff)";
-    }
-    
-    else if(estado === "Thunderstorm"){
-    document.body.style.background = "linear-gradient(to bottom, #141e30, #243b55)";
-    }
-    
-    else if(estado === "Snow"){
-    document.body.style.background = "linear-gradient(to bottom, #e6f0ff, #ffffff)";
-    }
-    
-    else if(estado === "Mist" || estado === "Fog" || estado === "Haze"){
-    document.body.style.background = "linear-gradient(to bottom, #d7d2cc, #304352)";
-    }
-    
-    else{
-    document.body.style.background = "linear-gradient(to bottom, #74ebd5, #acb6e5)";
+    if (estado === "Clear") {
+        document.body.style.background = "linear-gradient(to bottom, #4facfe, #00f2fe)";
+    } else if (estado === "Clouds") {
+        document.body.style.background = "linear-gradient(to bottom, #bdc3c7, #2c3e50)";
+    } else if (estado === "Rain") {
+        document.body.style.background = "linear-gradient(to bottom, #4b79a1, #283e51)";
+    } else if (estado === "Drizzle") {
+        document.body.style.background = "linear-gradient(to bottom, #89f7fe, #66a6ff)";
+    } else if (estado === "Thunderstorm") {
+        document.body.style.background = "linear-gradient(to bottom, #141e30, #243b55)";
+    } else if (estado === "Snow") {
+        document.body.style.background = "linear-gradient(to bottom, #e6f0ff, #ffffff)";
+    } else if (estado === "Mist" || estado === "Fog" || estado === "Haze") {
+        document.body.style.background = "linear-gradient(to bottom, #d7d2cc, #304352)";
+    } else {
+        document.body.style.background = "linear-gradient(to bottom, #74ebd5, #acb6e5)";
     }
 }
 const params = new URLSearchParams(window.location.search);
