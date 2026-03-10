@@ -1,3 +1,28 @@
+function mudarFundo(estado){
+
+    if(estado === "Clear"){
+        document.body.style.backgroundColor = "#87CEEB"; // céu limpo (azul)
+
+    } else if(estado === "Clouds"){
+        document.body.style.backgroundColor = "#B0B0B0"; // nublado
+
+    } else if(estado === "Rain"){
+        document.body.style.backgroundColor = "#5F9EA0"; // chuva
+
+    } else if(estado === "Snow"){
+        document.body.style.backgroundColor = "#E6F2FF"; // neve
+
+    } else if(estado === "Thunderstorm"){
+        document.body.style.backgroundColor = "#4B4B4B"; // trovoada
+
+    } else {
+        document.body.style.backgroundColor = "#FFFFFF"; // default
+    }
+
+}
+
+
+
 async function getWeather(city) {
 
 const apiKey = "7ac7fdd190ade699e9c9cb9459468914";
@@ -24,8 +49,6 @@ data.wind.speed + " m/s";
 
 document.getElementById("feels").innerText =
 data.main.feels_like + " °C";
-
-const icon = data.weather[0].icon;
 
 
 }
