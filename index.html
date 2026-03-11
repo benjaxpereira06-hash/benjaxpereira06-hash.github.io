@@ -5,105 +5,82 @@
     <meta charset="UTF-8">
     <title> Weather APP -FCUL </title>
         
-    <style>
-        body {
-                font-family: 'Montserrat' , sans-serif;
-                margin: 0;
-                padding: 20px;
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-image: url('elg21-darling-9408525.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
 
-                background-image: url('elg21-darling-9408525.jpg'); 
-                background-size: cover;           /* Faz a imagem cobrir a tela toda */
-                background-position: center;      /* Centraliza a imagem */
-                background-attachment: fixed;     /* A imagem não mexe quando faz scroll */
-                background-repeat: no-repeat;     /* Não deixa a imagem repetir como um mosaico */
-            
-                    
-            }
+    h1 {
+        font-size: 80px; /* Reduzi um pouco para não quebrar em ecrãs menores */
+        letter-spacing: 3px;
+        text-align: center;
+        margin-top: 50px;
+    }
 
-            
+    .botao-bonito, .botaodireita {
+        background-color: #f2c2c2;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
 
-    
-           h1{
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 100px;
-                    letter-spacing: 3px;
-                    text-align: center;   
-                    }
-   
-        .botao-bonito {
-              background-color: #f2c2c2;
-              color: white;
-              padding: 15px 25px;
-              border: none;
-              border-radius: 8px;
-              cursor: pointer;
-              font-size: 16px;
-              }
-        
-        .botao-bonito:hover {
-             background-color: #218838; /* Muda de cor ao passar o rato */
-        }
-        .botaodireita {
-              background-color: #f2c2c2;
-              color: white;
-              padding: 15px 25px;
-              border: none;
-              border-radius: 8px;
-              cursor: pointer;
-              font-size: 16px;
-              float: right;  
-            
-            
-        
+    .botao-bonito:hover, .botaodireita:hover {
+        background-color: #218838;
+    }
 
-            
-        .folha {
-          background-color: #6c1413;  
-          position: fixed;
-          top: 0;
-          left: -100%;           /* começa fora do ecrã */
-          width: 800px;
-          height: 100vh;         
-          box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-          transition: left 0.4s ease;  /* animação suave */
-          padding: 20px;
-          z-index: 1000;  
-        }
-        
-        .folha.ativa {
-          left: 0;               /* desliza para dentro */
-         }     
-        .search-container{
-            display:flex;
-            justify-content:center;
-            margin-top:40px;
-        }
-        }
-        
-        #cityInput {
-            width: 400px;        /* largura grande */
-            height: 50px;        /* altura maior */
-            font-size: 24px;     /* letra grande */
-            padding: 10px;
-            border-radius: 12px;
-            border: 2px solid #ccc;
-            outline: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-        #cityInput:focus {
-            border-color: #4facfe;
-            box-shadow: 0 0 10px rgba(0,175,255,0.5);
-        }   
-            
-    
-    
-    
-    
-    
-    
-    
-    
-    </style>
+    /* Posicionando o botão Menu no topo direito */
+    #menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .folha {
+        background-color: #6c1413;  
+        color: white;
+        position: fixed;
+        top: 0;
+        left: -850px; /* Um pouco mais que a largura para esconder a sombra */
+        width: 800px;
+        height: 100vh;         
+        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+        transition: left 0.4s ease-in-out;
+        padding: 40px;
+        z-index: 2000; /* Valor bem alto para ficar acima de tudo */
+    }
+
+    .folha.ativa {
+        left: 0;
+    }
+
+    .search-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 40px;
+    }
+
+    #cityInput {
+        width: 400px;
+        height: 50px;
+        font-size: 20px;
+        padding: 0 15px;
+        border-radius: 12px;
+        border: 2px solid #ccc;
+        outline: none;
+    }
+</style>
 </head>    
 
     
