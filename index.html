@@ -45,10 +45,19 @@
         top: 20px;
         right: 20px;
     }
-    #cancelar {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+    .hamburguer-linha {
+    display: block;
+    width: 35px; /* Comprimento da linha */
+    height: 4px; /* Espessura da linha */
+    background-color: white; /* Cor dos traços */
+    border-radius: 2px; /* Cantos ligeiramente arredondados */
+    transition: all 0.3s ease; /* Animação suave para as transformações futuras */
+}
+
+/* Efeito ao passar o rato (opcional) */
+    #menu:hover .hamburguer-linha {
+     background-color: #218838; /* Muda a cor dos traços no hover */
+ 
     }
     .folha {
         background-color: #6c1413;  
@@ -100,12 +109,14 @@
     
     <h1>Weather App </h1>        
    
-    <button class="botaodireita" id="cancelar" style="display:none" onclick="fecharFolha()" >SAIR </button>         
+        
      
     
   
     <br>
-    <button id="menu" class="botao-bonito" onclick="abrirFolha()">menu</button>
+    <button id="menu" class="botao-bonito" onclick="abrirFolha()"><span class="hamburguer-linha"></span>
+    <span class="hamburguer-linha"></span>
+    <span class="hamburguer-linha"></span></button>
     <div id="folha" class="folha">
     <h2>Menu</h2>
     <p>Benjamim Pereira Engenharia Fisica</p>
