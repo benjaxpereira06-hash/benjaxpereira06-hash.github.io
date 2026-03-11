@@ -70,3 +70,7 @@ function abrirFolha() {
     document.getElementById("folha").classList.toggle("ativa");
     }
 
+function mostrarPesquisa(){
+    document.getElementById("overlay").classList.add("ativo");
+}
+
