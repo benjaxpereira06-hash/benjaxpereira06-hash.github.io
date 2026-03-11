@@ -106,13 +106,13 @@ function getWeatherByCoords(lat, lon) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-    document.getElementById("city").innerText =
+    document.getElementById("city1").innerText =
     data.name + ", " + data.sys.country;
 
-    document.getElementById("temp").innerText =
+    document.getElementById("temp1").innerText =
     data.main.temp + " °C";
 
-    document.getElementById("desc").innerText =
+    document.getElementById("desc1").innerText =
     data.weather[0].description;        
             
         })
