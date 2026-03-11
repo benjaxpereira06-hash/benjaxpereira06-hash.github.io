@@ -22,42 +22,59 @@
         margin-top: 50px;
     }
 
-    .botao-bonito {        
-        color: white;
-        background: none;
-        border: none;
-        outline: none;
-        box-shadow: none;
-        padding: 15px 25px;       
-        cursor: pointer;
-        font-size: 16px;
-        transition: 0.3s;       
-        display: flex;             /* Ativa o modo flexível */
-        flex-direction: column;    /* Coloca as linhas em coluna */     
-        justify-content: space-between;
-        height: 50px;
-        width: 40px;
-    }
+    .btn-moderno {
+    
+    background-color: #ffffff;
+    color: #5e5ce6;
+    border: 1px solid #e5e5ea;    
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    border-radius: 12px;
+    cursor: pointer;    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    outline: none;
+  }
 
-    /* Posicionando o botão Menu no topo direito */
+  
+    .btn-moderno:hover {
+        background-color: #f9f9fb;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        border-color: #5e5ce6;
+  }
+
+  /* Efeito de Clique */
+    .btn-moderno:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        
+  }
+    #sair {
+        top: 20px;
+        left: 20px;
+        
+        
     #menu {
         position: absolute;
         top: 20px;
         right: 20px;
     }
     .hamburguer-linha {
-    display: block;
-    width: 35px; /* Comprimento da linha */
-    height: 3px; /* Espessura da linha */
-    background-color: white; /* Cor dos traços */
-    border-radius: 2px; /* Cantos ligeiramente arredondados */
-    transition: all 0.3s ease; /* Animação suave para as transformações futuras */
+        display: block;
+        width: 35px; /* Comprimento da linha */
+        height: 3px; /* Espessura da linha */
+        background-color: white; /* Cor dos traços */
+        border-radius: 2px; /* Cantos ligeiramente arredondados */
+        transition: all 0.3s ease; /* Animação suave para as transformações futuras */
 }
 
 /* Efeito ao passar o rato (opcional) */
     #menu:hover .hamburguer-linha {
-     background-color: #ec5353; /* Muda a cor dos traços no hover */
-     /* Estilo para o botão que contém o sinal de mais */
+         background-color: #ec5353; /* Muda a cor dos traços no hover */
+         /* Estilo para o botão que contém o sinal de mais */
 
     }
     .botao-mais {
@@ -265,7 +282,7 @@
              </button>
      </div>  
 </div>   
-<button class="botão bonito" onclick="voltar()">
+<button class="btn-moderno" id="sair" onclick="voltar()">
            Sair
       </button>
   
