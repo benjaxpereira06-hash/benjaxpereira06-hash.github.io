@@ -58,51 +58,50 @@
     #menu:hover .hamburguer-linha {
      background-color: #ec5353; /* Muda a cor dos traços no hover */
      /* Estilo para o botão que contém o sinal de mais */
-    .botao-mais {
-      width: 60px; /* Largura total do botão */
-      height: 60px; /* Altura total do botão */
-      background-color: #28a745; /* Cor de fundo do círculo/quadrado */
-      border: none;
-      border-radius: 50%; /* Faz o botão ser redondo */
-      cursor: pointer;
-      display: flex;
-      justify-content: center; /* Centraliza as linhas horizontalmente */
-      align-items: center; /* Centraliza as linhas verticalmente */
-      position: fixed; /* Fixa o botão na tela */
-      bottom: 30px; /* Distância do fundo */
-      right: 30px; /* Distância da direita */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Uma pequena sombra */
-      transition: background-color 0.3s ease;
-      z-index: 1000;
-}
 
-/* Efeito ao passar o rato no botão */
-     .botao-mais:hover {
-      background-color: #218838; /* Cor mais escura no hover */
-}
-
-/* Estilo para as linhas que formam o "mais" */
-    .botao-mais .linha-vertical,
-    .botao-mais .linha-horizontal {
-      position: absolute;
-      display: block;
-      background-color: white; /* Cor do sinal de mais */
-      border-radius: 2px;
-      transition: transform 0.3s ease;
-}
-
-/* Linha Vertical */
-    .botao-mais .linha-vertical {
-      width: 4px; /* Espessura da linha */
-      height: 30px; /* Comprimento da linha */
-}
-
-/* Linha Horizontal */
-    .botao-mais .linha-horizontal {
-      width: 30px; /* Comprimento da linha */
-      height: 4px; /* Espessura da linha */ 
- 
     }
+    .botao-mais {
+    width: 60px;
+    height: 60px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    /* REMOVE O CONTORNO PRETO */
+    outline: none; 
+}
+
+.botao-mais:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+/* Garante que ambos os traços apareçam */
+.botao-mais span {
+    background-color: white;
+    display: block;
+    position: absolute; /* Para ficarem um por cima do outro no centro */
+    border-radius: 2px;
+}
+
+.linha-vertical {
+    width: 4px;
+    height: 30px;
+}
+
+.linha-horizontal {
+    width: 30px;
+    height: 4px;
+}
     .folha {
         background-color: #6c1413;  
         color: white;
@@ -198,11 +197,13 @@
 <body>
   <!-- elementos da página -->
   <h1 id="city"></h1>
-  <button id="menu" class="botao-bonito" onclick="abrirFolha()">
-    <span class="hamburguer-linha"></span>
-    <span class="hamburguer-linha"></span>
-    <span class="hamburguer-linha"></span>
-   </button>
+  <button id="menu" class="botao-bonito" onclick="abrirFolha()"><span class="hamburguer-linha"></span>
+  <span class="hamburguer-linha"></span>
+  <span class="hamburguer-linha"></span></button>
+  <div id="folha" class="folha">
+   <h2>Menu</h2>
+   <p>Benjamim Pereira Engenharia Fisica</p>
+   </div>    
 
   <button class="botao-mais" id="abrirAdicionar">
     <span class="linha-vertical"></span>
