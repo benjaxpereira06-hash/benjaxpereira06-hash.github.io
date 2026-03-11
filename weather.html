@@ -1,307 +1,304 @@
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title> Weather APP -FCUL </title>
-        
+<meta charset="UTF-8">
+<title>Weather APP - FCUL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-image: url('elg21-darling-9408525.jpg'); 
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-    }
 
-    h1 {
-        font-size: 80px; /* Reduzi um pouco para não quebrar em ecrãs menores */
-        letter-spacing: 3px;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    .btn-moderno {
-    
-    background-color:#ffffff ;
-    color: #ec5353;
-    border: 1px solid  #ccc;    
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    border-radius: 12px;
-    cursor: pointer;    
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    transition: all 0.3s ease;
-    outline: none;
-  }
-
-  
-    .btn-moderno:hover {
-        background-color: #f9f9fb;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-        border-color: #ec5353;
-  }
-
-  
-    .btn-moderno:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        
-  }
-    #sair {
-        top: 20px;
-        left: 20px;
-    }    
-    .botao-bonito {        
-        color: white;
-        background: none;
-        border: none;
-        outline: none;
-        box-shadow: none;
-        padding: 15px 25px;       
-        cursor: pointer;
-        font-size: 16px;
-        transition: 0.3s;       
-        display: flex;             /* Ativa o modo flexível */
-        flex-direction: column;    /* Coloca as linhas em coluna */     
-        justify-content: space-between;
-        height: 50px;
-        width: 40px;
-    }
-
-        
-    #menu {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-    .hamburguer-linha {
-        display: block;
-        width: 35px; /* Comprimento da linha */
-        height: 3px; /* Espessura da linha */
-        background-color: white; /* Cor dos traços */
-        border-radius: 2px; /* Cantos ligeiramente arredondados */
-        transition: all 0.3s ease; /* Animação suave para as transformações futuras */
+body{
+    font-family:'Montserrat',sans-serif;
+    margin:0;
+    padding:20px;
+    background-image:url('elg21-darling-9408525.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
 }
 
-/* Efeito ao passar o rato (opcional) */
-    #menu:hover .hamburguer-linha {
-         background-color: #ec5353; /* Muda a cor dos traços no hover */
-        
-
-    }
-    .botao-mais {
-        width: 60px;
-        height: 60px;
-        background: none;
-        background-color: none;        
-        cursor: pointer;
-        position: fixed; 
-        top: 80px; 
-        right: 0px; 
-        display: flex;
-        justify-content: center;
-        align-items: center;    
-        transition: all 0.3s ease;
-        z-index: 9999;
-        border: none;
-        outline: none;
-        box-shadow: none;    
-    
-    
+h1{
+    font-size:80px;
+    letter-spacing:3px;
+    text-align:center;
+    margin-top:50px;
 }
 
-
-
-
-/* Garante que ambos os traços apareçam */
-.botao-mais span {
-    background-color: white;
-    display: block;
-    position: absolute; /* Para ficarem um por cima do outro no centro */
-    border-radius: 2px;
+.btn-moderno{
+    background-color:#ffffff;
+    color:#ec5353;
+    border:1px solid #ccc;
+    padding:12px 24px;
+    font-size:16px;
+    font-weight:600;
+    font-family:'Inter',sans-serif;
+    border-radius:12px;
+    cursor:pointer;
+    box-shadow:0 4px 6px -1px rgba(0,0,0,0.05),0 2px 4px -1px rgba(0,0,0,0.03);
+    transition:all 0.3s ease;
+    outline:none;
 }
 
-.linha-vertical {
-    width: 4px;
-    height: 30px;
+.btn-moderno:hover{
+    background-color:#f9f9fb;
+    transform:translateY(-2px);
+    box-shadow:0 10px 15px -3px rgba(0,0,0,0.08);
+    border-color:#ec5353;
 }
 
-.linha-horizontal {
-    width: 30px;
-    height: 4px;
-}
-    .folha {
-        background-color: #6c1413;  
-        color: white;
-        position: fixed;
-        top: 0;
-        left: -1000px; /* Um pouco mais que a largura para esconder a sombra */
-        width: 800px;
-        height: 100vh;         
-        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
-        transition: left 0.4s ease-in-out;
-        padding: 40px;
-        z-index: 2000; /* Valor bem alto para ficar acima de tudo */
-    }
-
-    .folha.ativa {
-        left: 0;
-    }
-
-    .search-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 40px;
-    }
-
-    #cityInput {
-        width: 400px;
-        height: 50px;
-        font-size: 20px;
-        padding: 0 15px;
-        border-radius: 12px;
-        border: 2px solid #ccc;
-        outline: none;
-    }
-    #cityInput:focus {
-            border-color: #ec5353;
-            box-shadow: 0 0 10px rgba(0,175,255,0.5);
-        }
-    .weather-container {
-        max-width: 600px;
-        margin: 40px auto;
-        color: white;
-        text-align: center;
+.btn-moderno:active{
+    transform:translateY(0);
+    box-shadow:0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Card Principal (Temperatura e Cidade) */
-    .main-card {
-        background: rgba(255, 255, 255, 0.2); /* Fundo transparente */
-        backdrop-filter: blur(10px);          /* Efeito de vidro focado */
-        padding: 30px;
-        border-radius: 20px;
-        margin-bottom: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+#sair{
+    top:20px;
+    left:20px;
 }
 
-    #temp { font-size: 80px; margin: 10px 0; }
-
-/* Grelha de Detalhes (3 colunas) */
-   .details-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
+#menu{
+    position:absolute;
+    top:20px;
+    right:20px;
 }
 
-   .card {
-        background: rgba(108, 20, 19, 0.8); /* Cor bordeaux da tua folha, mas transparente */
-        padding: 20px;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: transform 0.3s;
+.botao-bonito{
+    color:white;
+    background:none;
+    border:none;
+    padding:15px 25px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:50px;
+    width:40px;
 }
 
-   .card:hover { transform: translateY(-5px); }
-
-   .card-icon { font-size: 24px; margin-bottom: 5px; }
-   .card p { margin: 5px 0; font-size: 14px; opacity: 0.8; }
-   .card strong { font-size: 18px; }   
-
-    #overlay{
-        position: fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-    
-        backdrop-filter: blur(8px);
-        background: rgba(0,0,0,0.2);
-    
-        display:none;
-    
-        justify-content:center;
-        align-items:center;
+.hamburguer-linha{
+    display:block;
+    width:35px;
+    height:3px;
+    background-color:white;
+    border-radius:2px;
+    transition:all 0.3s ease;
 }
 
-   #overlay.ativo{
-        display:flex;
- }
+#menu:hover .hamburguer-linha{
+    background-color:#ec5353;
+}
+
+.botao-mais{
+    width:60px;
+    height:60px;
+    background:none;
+    cursor:pointer;
+    position:fixed;
+    top:80px;
+    right:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:all 0.3s ease;
+    z-index:9999;
+    border:none;
+}
+
+.botao-mais span{
+    background-color:white;
+    display:block;
+    position:absolute;
+    border-radius:2px;
+}
+
+.linha-vertical{
+    width:4px;
+    height:30px;
+}
+
+.linha-horizontal{
+    width:30px;
+    height:4px;
+}
+
+.folha{
+    background-color:#6c1413;
+    color:white;
+    position:fixed;
+    top:0;
+    left:-1000px;
+    width:800px;
+    height:100vh;
+    box-shadow:5px 0 15px rgba(0,0,0,0.5);
+    transition:left 0.4s ease-in-out;
+    padding:40px;
+    z-index:2000;
+}
+
+.folha.ativa{
+    left:0;
+}
+
+.weather-container{
+    max-width:600px;
+    margin:40px auto;
+    color:white;
+    text-align:center;
+}
+
+.main-card{
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:20px;
+    border:1px solid rgba(255,255,255,0.3);
+}
+
+#temp{
+    font-size:80px;
+    margin:10px 0;
+}
+
+.details-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.card{
+    background:rgba(108,20,19,0.8);
+    padding:20px;
+    border-radius:15px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    transition:transform 0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-icon{
+    font-size:24px;
+    margin-bottom:5px;
+}
+
+.card p{
+    margin:5px 0;
+    font-size:14px;
+    opacity:0.8;
+}
+
+.card strong{
+    font-size:18px;
+}
+
+.search-container{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+#cityInput{
+    width:400px;
+    height:50px;
+    font-size:20px;
+    padding:0 15px;
+    border-radius:12px;
+    border:2px solid #ccc;
+    outline:none;
+}
+
+#cityInput:focus{
+    border-color:#ec5353;
+    box-shadow:0 0 10px rgba(0,175,255,0.5);
+}
+
+#overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,0.2);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+#overlay.ativo{
+    display:flex;
+}
+
 </style>
 </head>
 
-
-
-
-
-
-
-
-
-
-
 <body>
-  
-  <button class="btn-moderno" id="sair" onclick="voltar()">
-           Sair
-      </button>
-  <button id="menu" class="botao-bonito" onclick="abrirFolha()"><span class="hamburguer-linha"></span>
-  <span class="hamburguer-linha"></span>
-  <span class="hamburguer-linha"></span></button>
-  <div id="folha" class="folha">
-   <h2>Menu</h2>
-   <p>Benjamim Pereira Engenharia Fisica</p>
-   </div>    
+
+<button class="btn-moderno" id="sair" onclick="voltar()">Sair</button>
+
+<button id="menu" class="botao-bonito" onclick="abrirFolha()">
+<span class="hamburguer-linha"></span>
+<span class="hamburguer-linha"></span>
+<span class="hamburguer-linha"></span>
+</button>
+
+<div id="folha" class="folha">
+<h2>Menu</h2>
+<p>Benjamim Pereira Engenharia Física</p>
+</div>
 
 <div class="weather-container">
-    <div class="main-card">
-        <h2 id="city"></h2>
-        <img id="icon" src="" alt="Clima">
-        <h1 id="temp">-- °C</h1>
-        <p id="desc">Estado do tempo</p>
-    </div>
 
-    <div class="details-grid">
-        <div class="card">
-            <span class="card-icon">💧</span>
-            <p>Humidade</p>
-            <strong id="humidity">--%</strong>
-        </div>
-        <div class="card">
-            <span class="card-icon">💨</span>
-            <p>Vento</p>
-            <strong id="wind">-- m/s</strong>
-        </div>
-        <div class="card">
-            <span class="card-icon">👤</span>
-            <p>Sensação</p>
-            <strong id="feels">-- °C</strong>
-        </div>
-    </div>
- </div>
- <button class="botao-mais" id="botao-mais" onclick="mostrarPesquisa()">
-    <span class="linha-vertical"></span>
-    <span class="linha-horizontal"></span>
- </button>
+<div class="main-card">
+<h2 id="city"></h2>
+<img id="icon" src="" alt="Clima">
+<h1 id="temp">-- °C</h1>
+<p id="desc">Estado do tempo</p>
+</div>
+
+<div class="details-grid">
+
+<div class="card">
+<span class="card-icon">💧</span>
+<p>Humidade</p>
+<strong id="humidity">--%</strong>
+</div>
+
+<div class="card">
+<span class="card-icon">💨</span>
+<p>Vento</p>
+<strong id="wind">-- m/s</strong>
+</div>
+
+<div class="card">
+<span class="card-icon">👤</span>
+<p>Sensação</p>
+<strong id="feels">-- °C</strong>
+</div>
+
+</div>
+</div>
+
+<button class="botao-mais" id="botao-mais" onclick="mostrarPesquisa()">
+<span class="linha-vertical"></span>
+<span class="linha-horizontal"></span>
+</button>
 
 <div id="overlay">
-    
+
 <div class="search-container">
+<input id="cityInput" type="text" placeholder="Escreve a cidade...">
+<button class="btn-moderno" onclick="procurarCidade()">Procurar</button>
+</div>
 
-        <input id="cityInput" type="text" placeholder="Escreve a cidade...">
-        <button class="btn-moderno" onclick="procurarCidade()">
-            Procurar
-             </button>
-     </div>  
-</div>   
+</div>
 
-  
-  <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
