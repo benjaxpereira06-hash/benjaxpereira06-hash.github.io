@@ -1,3 +1,159 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title> Weather APP -FCUL </title>
+        
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-image: url('elg21-darling-9408525.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    h1 {
+        font-size: 80px; /* Reduzi um pouco para não quebrar em ecrãs menores */
+        letter-spacing: 3px;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .botao-bonito {        
+        color: white;
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        padding: 15px 25px;       
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;       
+        display: flex;             /* Ativa o modo flexível */
+        flex-direction: column;    /* Coloca as linhas em coluna */     
+        justify-content: space-between;
+        height: 50px;
+        width: 40px;
+    }
+
+    /* Posicionando o botão Menu no topo direito */
+    #menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    .hamburguer-linha {
+    display: block;
+    width: 35px; /* Comprimento da linha */
+    height: 3px; /* Espessura da linha */
+    background-color: white; /* Cor dos traços */
+    border-radius: 2px; /* Cantos ligeiramente arredondados */
+    transition: all 0.3s ease; /* Animação suave para as transformações futuras */
+}
+
+/* Efeito ao passar o rato (opcional) */
+    #menu:hover .hamburguer-linha {
+     background-color: #ec5353; /* Muda a cor dos traços no hover */
+     /* Estilo para o botão que contém o sinal de mais */
+    .botao-mais {
+      width: 60px; /* Largura total do botão */
+      height: 60px; /* Altura total do botão */
+      background-color: #28a745; /* Cor de fundo do círculo/quadrado */
+      border: none;
+      border-radius: 50%; /* Faz o botão ser redondo */
+      cursor: pointer;
+      display: flex;
+      justify-content: center; /* Centraliza as linhas horizontalmente */
+      align-items: center; /* Centraliza as linhas verticalmente */
+      position: fixed; /* Fixa o botão na tela */
+      bottom: 30px; /* Distância do fundo */
+      right: 30px; /* Distância da direita */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Uma pequena sombra */
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+}
+
+/* Efeito ao passar o rato no botão */
+    .botao-mais:hover {
+      background-color: #218838; /* Cor mais escura no hover */
+}
+
+/* Estilo para as linhas que formam o "mais" */
+   .botao-mais .linha-vertical,
+   .botao-mais .linha-horizontal {
+      position: absolute;
+      display: block;
+      background-color: white; /* Cor do sinal de mais */
+      border-radius: 2px;
+      transition: transform 0.3s ease;
+}
+
+/* Linha Vertical */
+   .botao-mais .linha-vertical {
+      width: 4px; /* Espessura da linha */
+      height: 30px; /* Comprimento da linha */
+}
+
+/* Linha Horizontal */
+    .botao-mais .linha-horizontal {
+      width: 30px; /* Comprimento da linha */
+      height: 4px; /* Espessura da linha */ 
+ 
+    }
+    .folha {
+        background-color: #6c1413;  
+        color: white;
+        position: fixed;
+        top: 0;
+        left: -1000px; /* Um pouco mais que a largura para esconder a sombra */
+        width: 800px;
+        height: 100vh;         
+        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+        transition: left 0.4s ease-in-out;
+        padding: 40px;
+        z-index: 2000; /* Valor bem alto para ficar acima de tudo */
+    }
+
+    .folha.ativa {
+        left: 0;
+    }
+
+    .search-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 40px;
+    }
+
+    #cityInput {
+        width: 400px;
+        height: 50px;
+        font-size: 20px;
+        padding: 0 15px;
+        border-radius: 12px;
+        border: 2px solid #ccc;
+        outline: none;
+    }
+    #cityInput:focus {
+            border-color: #4facfe;
+            box-shadow: 0 0 10px rgba(0,175,255,0.5);
+        }   
+</style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
 <body>
   <!-- elementos da página -->
   <h1 id="city"></h1>
