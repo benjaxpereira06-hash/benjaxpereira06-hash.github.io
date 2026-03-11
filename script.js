@@ -57,6 +57,10 @@ data.wind.speed + " m/s";
 
 document.getElementById("feels").innerText =
 data.main.feels_like + " °C";
+const iconCode = data.weather[0].icon;
+document.getElementById("icon").src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    
+    
 const estado = data.weather[0].main;    
 
 mudarFundo(estado);
