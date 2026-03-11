@@ -114,7 +114,7 @@ function getWeatherByCoords(lat, lon) {
     data.name + ", " + data.sys.country;
 
     document.getElementById("temp1").innerText =
-    data.main.temp + " °C";
+    Math.round(data.main.temp) + " °C";
 
     document.getElementById("desc1").innerText =
     data.weather[0].description;        
