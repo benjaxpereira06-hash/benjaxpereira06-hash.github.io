@@ -181,7 +181,27 @@
 
    .card-icon { font-size: 24px; margin-bottom: 5px; }
    .card p { margin: 5px 0; font-size: 14px; opacity: 0.8; }
-   .card strong { font-size: 18px; }    
+   .card strong { font-size: 18px; }   
+
+    #overlay{
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    
+        backdrop-filter: blur(8px);
+        background: rgba(0,0,0,0.2);
+    
+        display:none;
+    
+        justify-content:center;
+        align-items:center;
+}
+
+   #overlay.ativo{
+        display:flex;
+ }
 </style>
 </head>
 
@@ -205,12 +225,6 @@
    <h2>Menu</h2>
    <p>Benjamim Pereira Engenharia Fisica</p>
    </div>    
-
-  <button class="botao-mais" id="abrirAdicionar">
-    <span class="linha-vertical"></span>
-    <span class="linha-horizontal"></span>
-  </button>
-
 
 <div class="weather-container">
     <div class="main-card">
@@ -238,6 +252,19 @@
         </div>
     </div>
  </div>
+ <button class"botao-mais" id="mais" onclick="mostrarPesquisa()">
+    <span class="linha-vertical"></span>
+    <span class="linha-horizontal"></span>
+ </button>
+
+<div id="overlay">
+    
+    <div class="caixa-pesquisa">
+        <input id="cityInput" type="text" placeholder="Escreve a cidade...">
+        <button onclick="procurarCidade()">Procurar</button>
+    </div>
+
+</div>   
 
   
   <script src="script.js"></script>
