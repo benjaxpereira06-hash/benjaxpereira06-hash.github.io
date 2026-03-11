@@ -74,3 +74,47 @@ function mostrarPesquisa(){
     document.getElementById("overlay").classList.add("ativo");
 }
 
+
+
+
+window.onload = function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(sucesso, erro);
+    } else {
+        console.log("Geolocalização não é suportada pelo teu navegador.");
+    }
+};
+
+function sucesso(posicao) {
+    const lat = posicao.coords.latitude;
+    const lon = posicao.coords.longitude;
+    
+    // Agora chamamos a tua função da API usando coordenadas em vez de nome
+    getWeatherByCoords(lat, lon);
+}
+
+function erro() {
+    console.log("Não foi possível obter a tua localização. Podes pesquisar manualmente.");
+}
+
+
+
+function getWeatherByCoords(lat, lon) {
+    const apiKey = "7ac7fdd190ade699e9c9cb9459468914"; 
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+    document.getElementById("city").innerText =
+    data.name + ", " + data.sys.country;
+
+    document.getElementById("temp").innerText =
+    data.main.temp + " °C";
+
+    document.getElementById("desc").innerText =
+    data.weather[0].description;        
+            
+        })
+        .catch(err => console.error("Erro ao obter dados por localização:", err));
+}
