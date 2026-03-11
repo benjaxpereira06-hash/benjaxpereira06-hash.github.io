@@ -1,216 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title> Weather APP -FCUL </title>
-        
-<style>
-    body {
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-image: url('elg21-darling-9408525.jpg'); 
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-    }
+    <title>Weather APP - FCUL</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('elg21-darling-9408525.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
 
-    h1 {
-        font-size: 80px; /* Reduzi um pouco para não quebrar em ecrãs menores */
-        letter-spacing: 3px;
-        text-align: center;
-        margin-top: 50px;
-    }
+        h1 {
+            font-size: 80px;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-top: 50px;
+        }
 
-    .botao-bonito {        
-        color: white;
-        background: none;
-        border: none;
-        outline: none;
-        box-shadow: none;
-        padding: 15px 25px;       
-        cursor: pointer;
-        font-size: 16px;
-        transition: 0.3s;       
-        display: flex;             /* Ativa o modo flexível */
-        flex-direction: column;    /* Coloca as linhas em coluna */     
-        justify-content: space-between;
-        height: 50px;
-        width: 40px;
-    }
-    .btn-moderno{
-        background-color:#ffffff;
-        color: #ec5353;
-        border: 1px solid #ccc;    
-        padding: 12px 24px;
-        font-size: 16px;
-        font-weight: 600;
-        font-family: 'Inter', sans-serif;
-        border-radius: 12px;
-        cursor: pointer;    
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        transition: all 0.3s ease;
-        outline: none;
-  }
+        #menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 45px;
+            width: 45px;
+            z-index: 3000;
+        }
 
-  
-    .btn-moderno:hover {
-        background-color: #f9f9fb;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-        border-color:#ec5353;
-  }
+        .hamburguer-linha {
+            display: block;
+            width: 35px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
 
-  
-    .btn-moderno:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-    #menu {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-    .hamburguer-linha {
-    display: block;
-    width: 35px; /* Comprimento da linha */
-    height: 3px; /* Espessura da linha */
-    background-color: white; /* Cor dos traços */
-    border-radius: 2px; /* Cantos ligeiramente arredondados */
-    transition: all 0.3s ease; /* Animação suave para as transformações futuras */
-}
+        #menu:hover .hamburguer-linha {
+            background-color: #ec5353;
+        }
 
-/* Efeito ao passar o rato (opcional) */
-    #menu:hover .hamburguer-linha {
-     background-color: #ec5353; /* Muda a cor dos traços no hover */
- 
-    }
-    .folha {
-        background-color: #6c1413;  
-        color: white;
-        position: fixed;
-        top: 0;
-        left: -1000px; /* Um pouco mais que a largura para esconder a sombra */
-        width: 800px;
-        height: 100vh;         
-        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
-        transition: left 0.4s ease-in-out;
-        padding: 40px;
-        z-index: 2000; /* Valor bem alto para ficar acima de tudo */
-    }
+        .btn-moderno {
+            background-color: #ffffff;
+            color: #ec5353;
+            border: 1px solid #ccc;    
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;    
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
 
-    .folha.ativa {
-        left: 0;
-    }
-
-    .search-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 40px;
-    }
-
-    #cityInput {
-        width: 400px;
-        height: 50px;
-        font-size: 20px;
-        padding: 0 15px;
-        border-radius: 12px;
-        border: 2px solid #ccc;
-        outline: none;
-    }
-    #cityInput:focus {
+        .btn-moderno:hover {
+            background-color: #f9f9fb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             border-color: #ec5353;
-            box-shadow: 0 0 10px rgba(0,175,255,0.5);
-        }   
-    .weather-container {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start; /* Alinha o container à esquerda */
-        padding-left: 50px;         /* Distância da borda esquerda do ecr/a */
-        margin-top: 100px;
-    }
+        }
 
-   .main-card {
-        background: rgba(255, 255, 255, 0.15); /* Vidro subtil */
-        backdrop-filter: blur(12px);
-        padding: 40px;
-        border-radius: 30px;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;    /* Alinha o conteúdo interno à esquerda */
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        min-width: 350px;
-    }
+        .folha {
+            background-color: #6c1413;  
+            color: white;
+            position: fixed;
+            top: 0;
+            left: -1000px;
+            width: 800px;
+            height: 100vh;         
+            box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+            transition: left 0.4s ease-in-out;
+            padding: 40px;
+            z-index: 2000;
+        }
 
-   .city-row {
-        display: flex;
-        align-items: center;
-        gap: 15px; /* Espaço entre o nome da cidade e o ícone */
-    }
+        .folha.ativa {
+            left: 0;
+        }
 
-   #city {
-        font-size: 28px;
-        margin: 0;
-        font-weight: 500;
-        letter-spacing: 1px;
-    }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
 
-   #icon {
-        width: 60px; /* Tamanho do "emoji" da API */
-        height: 60px;
-    }
+        #cityInput {
+            width: 400px;
+            height: 50px;
+            font-size: 20px;
+            padding: 0 15px;
+            border-radius: 12px;
+            border: 2px solid #ccc;
+            outline: none;
+        }
 
-   #temp {
-        font-size: 110px; /* Temperatura bem grande e destaque */
-        margin: 10px 0 0 0;
-        font-weight: 700;
-}
-</style>
+        #cityInput:focus {
+            border-color: #ec5353;
+        }
+
+        .weather-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 50px;
+            margin-top: 100px;
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 30px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 350px;
+        }
+
+        #temp1 {
+            font-size: 110px;
+            margin: 10px 0 0 0;
+            font-weight: 700;
+        }
+    </style>
 </head>
-    
-    
 
 <body>   
-    
-    
-    
-    
-    <h1>Weather App </h1> 
+    <h1>Weather App</h1> 
+
     <div class="weather-container">
-    <div class="main-card">
-        <div class="city-row">
+        <div class="main-card">
             <h2 id="city1">A detetar localização...</h2>            
+            <h1 id="temp1">--°C</h1>
         </div>
-        <h1 id="temp1">--°C</h1>
     </div>
-   </div>
    
-        
-     
-    
-  
-    <br>
-    <button id="menu" class="botao-bonito" onclick="abrirFolha()"><span class="hamburguer-linha"></span>
-    <span class="hamburguer-linha"></span>
-    <span class="hamburguer-linha"></span></button>
+    <button id="menu" onclick="abrirFolha()">
+        <span class="hamburguer-linha"></span>
+        <span class="hamburguer-linha"></span>
+        <span class="hamburguer-linha"></span>
+    </button>
+
     <div id="folha" class="folha">
-    <h2>Menu</h2>
-    <p>Benjamim Pereira Engenharia Fisica</p>
+        <h2>Menu</h2>
+        <p>Benjamim Pereira - Engenharia Física</p>
     </div>    
-    <br><br>
+
     <div class="search-container">
-
         <input id="cityInput" type="text" placeholder="Escreve a cidade...">
-        <button class="btn-moderno" onclick="procurarCidade()">
-            Procurar
-             </button>
-     </div>   
-
-    
+        <button class="btn-moderno" onclick="procurarCidade()">Procurar</button>
+    </div>   
 
     <script src="script.js"></script>
 </body>
