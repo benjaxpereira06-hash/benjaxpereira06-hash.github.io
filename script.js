@@ -65,12 +65,4 @@ mudarFundo(estado);
 function abrirFolha() {
     document.getElementById("folha").classList.toggle("ativa");
     }
-    document.getElementById("menu").addEventListener("click", function() {
-    document.getElementById("cancelar").style.display = "inline-block";
-    });  
-    document.getElementById("cancelar").addEventListener("click", function() {
-    document.getElementById("cancelar").style.display = "none";
-    });      
-function fecharFolha() {
-      document.getElementById("folha").classList.remove("ativa");
-       } 
+
