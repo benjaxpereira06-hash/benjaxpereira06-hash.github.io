@@ -27,6 +27,7 @@
                     font-family: 'Montserrat', sans-serif;
                     font-size: 100px;
                     letter-spacing: 3px;
+                    text-align: center;   
                     }
    
         .botao-bonito {
@@ -71,8 +72,11 @@
         .folha.ativa {
           left: 0;               /* desliza para dentro */
          }     
-        .search-container {
-            text-align: center;
+        .search-container{
+            display:flex;
+            justify-content:center;
+            margin-top:40px;
+        }
         }
         
         #cityInput {
@@ -126,11 +130,12 @@
     </div>    
     <br><br>
     <div class="search-container">
-      <input id="cityInput" type="text" placeholder="Escreve a cidade..." />    
-    </div>
-    <button class="botaodireita" onclick="procurarCidade()">
-    Procurar
-    </button>    
+
+        <input id="cityInput" type="text" placeholder="Escreve a cidade...">
+        <button onclick="procurarCidade()">
+            Procurar
+             </button>
+     </div>   
 
     
 
