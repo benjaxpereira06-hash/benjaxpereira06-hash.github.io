@@ -99,6 +99,50 @@
             border-color: #4facfe;
             box-shadow: 0 0 10px rgba(0,175,255,0.5);
         }   
+    .weather-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start; /* Alinha o container à esquerda */
+        padding-left: 50px;         /* Distância da borda esquerda do ecr/a */
+        margin-top: 100px;
+    }
+
+   .main-card {
+        background: rgba(255, 255, 255, 0.15); /* Vidro subtil */
+        backdrop-filter: blur(12px);
+        padding: 40px;
+        border-radius: 30px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;    /* Alinha o conteúdo interno à esquerda */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        min-width: 350px;
+    }
+
+   .city-row {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Espaço entre o nome da cidade e o ícone */
+    }
+
+   #city {
+        font-size: 28px;
+        margin: 0;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+   #icon {
+        width: 60px; /* Tamanho do "emoji" da API */
+        height: 60px;
+    }
+
+   #temp {
+        font-size: 110px; /* Temperatura bem grande e destaque */
+        margin: 10px 0 0 0;
+        font-weight: 700;
+}
 </style>
 </head>
     
@@ -109,7 +153,16 @@
     
     
     
-    <h1>Weather App </h1>        
+    <h1>Weather App </h1> 
+    <div class="weather-container">
+    <div class="main-card">
+        <div class="city-row">
+            <h2 id="city">A detetar localização...</h2>
+            <img id="icon" src="" alt="">
+        </div>
+        <h1 id="temp">--°C</h1>
+    </div>
+   </div>
    
         
      
