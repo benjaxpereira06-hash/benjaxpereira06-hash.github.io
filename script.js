@@ -45,7 +45,7 @@ getWeather(city);
 
 // Função principal que procura dados do clima via OpenWeatherMap API
 async function getWeather(city) {
-    const apiKey = "";
+    const apiKey = "7ac7fdd190ade699e9c9cb9459468914";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt`;
 
     const response = await fetch(url);
@@ -105,7 +105,7 @@ function erro() {
 // Função para procurar o clima usando coordenadas 
 // ---------------------------
 function getWeatherByCoords(lat, lon) {
-    const apiKey = ""; 
+    const apiKey = "7ac7fdd190ade699e9c9cb9459468914"; 
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt`;
 
     fetch(url)
