@@ -1,3 +1,7 @@
+function voltar(){
+window.location.href = "index.html?" ;
+}
+
 function procurarCidade(){
 
 const cidade = document.getElementById("cityInput").value;
