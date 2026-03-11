@@ -75,7 +75,7 @@ function abrirFolha() {
     }
 
 function mostrarPesquisa(){
-    document.getElementById("overlay").classList.add("ativo");
+    document.getElementById("overlay").classList.toggle("ativo");
 }
 
 
