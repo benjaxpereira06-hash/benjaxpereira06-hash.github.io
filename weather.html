@@ -77,13 +77,13 @@
 }
 
 /* Efeito ao passar o rato no botão */
-    .botao-mais:hover {
+     .botao-mais:hover {
       background-color: #218838; /* Cor mais escura no hover */
 }
 
 /* Estilo para as linhas que formam o "mais" */
-   .botao-mais .linha-vertical,
-   .botao-mais .linha-horizontal {
+    .botao-mais .linha-vertical,
+    .botao-mais .linha-horizontal {
       position: absolute;
       display: block;
       background-color: white; /* Cor do sinal de mais */
@@ -92,7 +92,7 @@
 }
 
 /* Linha Vertical */
-   .botao-mais .linha-vertical {
+    .botao-mais .linha-vertical {
       width: 4px; /* Espessura da linha */
       height: 30px; /* Comprimento da linha */
 }
@@ -140,7 +140,48 @@
     #cityInput:focus {
             border-color: #4facfe;
             box-shadow: 0 0 10px rgba(0,175,255,0.5);
-        }   
+        }
+    .weather-container {
+        max-width: 600px;
+        margin: 40px auto;
+        color: white;
+        text-align: center;
+}
+
+/* Card Principal (Temperatura e Cidade) */
+    .main-card {
+        background: rgba(255, 255, 255, 0.2); /* Fundo transparente */
+        backdrop-filter: blur(10px);          /* Efeito de vidro focado */
+        padding: 30px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+    #temp { font-size: 80px; margin: 10px 0; }
+
+/* Grelha de Detalhes (3 colunas) */
+   .details-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+}
+
+   .card {
+        background: rgba(108, 20, 19, 0.8); /* Cor bordeaux da tua folha, mas transparente */
+        padding: 20px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s;
+}
+
+   .card:hover { transform: translateY(-5px); }
+
+   .card-icon { font-size: 24px; margin-bottom: 5px; }
+   .card p { margin: 5px 0; font-size: 14px; opacity: 0.8; }
+   .card strong { font-size: 18px; }    
 </style>
 </head>
 
@@ -169,12 +210,33 @@
   </button>
 
 
-  <p>Temperatura: <span id="temp"></span></p>
-  <p>Estado: <span id="desc"></span></p>
-  <p>Humidade: <span id="humidity"></span></p>
-  <p>Vento: <span id="wind"></span></p>
-  <p>Sensação térmica: <span id="feels"></span></p>
+<div class="weather-container">
+    <div class="main-card">
+        <h2 id="city">Cidade, País</h2>
+        <img id="icon" src="" alt="Clima">
+        <h1 id="temp">-- °C</h1>
+        <p id="desc">Estado do tempo</p>
+    </div>
 
-  <!-- script.js deve estar no final do body -->
+    <div class="details-grid">
+        <div class="card">
+            <span class="card-icon">💧</span>
+            <p>Humidade</p>
+            <strong id="humidity">--%</strong>
+        </div>
+        <div class="card">
+            <span class="card-icon">💨</span>
+            <p>Vento</p>
+            <strong id="wind">-- m/s</strong>
+        </div>
+        <div class="card">
+            <span class="card-icon">👤</span>
+            <p>Sensação</p>
+            <strong id="feels">-- °C</strong>
+        </div>
+    </div>
+ </div>
+
+  
   <script src="script.js"></script>
 </body>
