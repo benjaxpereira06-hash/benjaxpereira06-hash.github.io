@@ -2,10 +2,14 @@
 <meta charset="UTF-8">
 <title>Weather APP - FCUL</title>
 
+<!-- Fonte do Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
 <style>
 
+  /* ---------------------------
+     Estilos gerais do corpo
+     --------------------------- */
 body{
     font-family:'Montserrat',sans-serif;
     margin:0;
@@ -24,6 +28,9 @@ h1{
     margin-top:50px;
 }
 
+  /* ---------------------------
+     Botão moderno (Sair / Procurar)
+     --------------------------- */
 .btn-moderno{
     background-color:#ffffff;
     color:#ec5353;
@@ -56,21 +63,24 @@ h1{
     left:20px;
 }
 
- #menu {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      padding: 15px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 45px;
-      width: 45px;
-      z-index: 3000;
-    }
+  /* ---------------------------
+     Menu hamburguer
+     --------------------------- */
+#menu{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:none;
+    border:none;
+    padding:15px;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:45px;
+    width:45px;
+    z-index:3000;
+}
 
 .hamburguer-linha{
     display:block;
@@ -85,6 +95,9 @@ h1{
     background-color:#ec5353;
 }
 
+  /* ---------------------------
+     Botão de pesquisa flutuante
+     --------------------------- */
 .botao-mais{
     width:60px;
     height:60px;
@@ -118,6 +131,9 @@ h1{
     height:4px;
 }
 
+  /* ---------------------------
+     Painel lateral (folha) do menu
+     --------------------------- */
 .folha{
     background-color:#6c1413;
     color:white;
@@ -136,6 +152,9 @@ h1{
     left:0;
 }
 
+  /* ---------------------------
+     Container principal do clima
+     --------------------------- */
 .weather-container{
     max-width:600px;
     margin:40px auto;
@@ -192,6 +211,9 @@ h1{
     font-size:18px;
 }
 
+  /* ---------------------------
+     Campo de pesquisa e overlay
+     --------------------------- */
 .search-container{
     display:flex;
     justify-content:center;
@@ -235,66 +257,70 @@ h1{
 
 <body>
 
+<!-- Botão de sair -->
 <button class="btn-moderno" id="sair" onclick="voltar()">Sair</button>
 
-<button id="menu"  onclick="abrirFolha()">
+<!-- Menu hamburguer -->
+<button id="menu" onclick="abrirFolha()">
 <span class="hamburguer-linha"></span>
 <span class="hamburguer-linha"></span>
 <span class="hamburguer-linha"></span>
 </button>
 
+<!-- Painel lateral com info pessoal -->
 <div id="folha" class="folha">
 <h2>Menu</h2>
 <p>Sou o Benjamim Pereira, tenho 19 anos e estudo Engenharia Física. 
-           Tenho grande interesse por ciência e tecnologia, mas também gosto de manter um bom equilíbrio entre os estudos e a vida social.
-           Nos tempos livres gosto de jogar futebol, praticar desporto e sair à noite com amigos.
-   </p>
+   Tenho grande interesse por ciência e tecnologia, mas também gosto de manter um bom equilíbrio entre os estudos e a vida social.
+   Nos tempos livres gosto de jogar futebol, praticar desporto e sair à noite com amigos.
+</p>
 </div>
 
+<!-- Container principal do clima -->
 <div class="weather-container">
 
-<div class="main-card">
-<h2 id="city"></h2>
-<img id="icon" src="" alt="Clima">
-<h1 id="temp">-- °C</h1>
-<p id="desc">Estado do tempo</p>
+  <div class="main-card">
+    <h2 id="city"></h2>
+    <img id="icon" src="" alt="Clima">
+    <h1 id="temp">-- °C</h1>
+    <p id="desc">Estado do tempo</p>
+  </div>
+
+  <div class="details-grid">
+
+    <div class="card">
+      <span class="card-icon">💧</span>
+      <p>Humidade</p>
+      <strong id="humidity">--%</strong>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">💨</span>
+      <p>Vento</p>
+      <strong id="wind">-- m/s</strong>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">👤</span>
+      <p>Sensação</p>
+      <strong id="feels">-- °C</strong>
+    </div>
+
+  </div>
 </div>
 
-<div class="details-grid">
-
-<div class="card">
-<span class="card-icon">💧</span>
-<p>Humidade</p>
-<strong id="humidity">--%</strong>
-</div>
-
-<div class="card">
-<span class="card-icon">💨</span>
-<p>Vento</p>
-<strong id="wind">-- m/s</strong>
-</div>
-
-<div class="card">
-<span class="card-icon">👤</span>
-<p>Sensação</p>
-<strong id="feels">-- °C</strong>
-</div>
-
-</div>
-</div>
-
+<!-- Botão flutuante para pesquisa -->
 <button class="botao-mais" id="botao-mais" onclick="mostrarPesquisa()">
 <span class="linha-vertical"></span>
 <span class="linha-horizontal"></span>
 </button>
 
+<!-- Overlay com input de pesquisa -->
 <div id="overlay">
-
-<div class="search-container">
-<input id="cityInput" type="text" placeholder="Escreve a cidade...">
-<button class="btn-moderno" onclick="procurarCidade()">Procurar</button>
-</div>
-
+  <div class="search-container">
+    <input id="cityInput" type="text" placeholder="Escreve a cidade...">
+    <button class="btn-moderno" onclick="procurarCidade()">Procurar</button>
+  </div>
 </div>
 
 <script src="script.js"></script>
